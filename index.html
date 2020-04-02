@@ -31,22 +31,7 @@
           <tr><td class="key color6"></td><td class="value first">1945 - 1960</td> <td></td><td></td></tr>
         </table>
       </div>
-      <div id="data">
-        <h2>Data</h2>
-        <table class="data-table">
-          <tr><td><h3>City</h3></td><td><span class="help" id="gemeente-help">(click on building for data)</span></td></tr>
-          <tr><td class="key">Name:</td><td class="value" id="admr-naam"></td></tr>
-          <tr><td class="key">Population:</td><td class="value" id="cbs-inwoners"></td></tr>
-          <tr><td class="key">Area:</td><td class="value" id="cbs-oppervlakte"></td></tr>
-          <tr><td><h3>Building</h3></td><td></td></tr>
-          <tr><td class="key">Constructed:</td><td class="value" id="pand-bouwjaar"></td></tr>
-          <tr><td class="key">Address:</td><td class="value" id="vbo-adres"></td></tr>
-          <tr><td class="key"></td><td class="value" id="vbo-postcode"></td></tr>
-          <tr><td class="key"></td><td class="value" id="vbo-plaats"></td></tr>
-          <tr><td class="key">Area:</td><td class="value" id="vbo-oppervlakte"></td></tr>
-          <tr><td class="key">Function:</td><td class="value" id="vbo-gebruiksdoel"></td></tr>
-        </table>
-      </div>
+      
       <div id="waag">
         <a href="#52.3732,4.9003,16"><img src="{{ site.baseurl}}/images/waag.png" /></a>
       </div>
@@ -86,25 +71,25 @@
       var lat = e.latlng.lat,
           lon = e.latlng.lng;
 
-      var buildingUrl = "{{ site.api }}layers/bag.pand/objects?lat=" + lat.toFixed(4)
-           + "&lon=" + lon.toFixed(4) + "&per_page=1&radius=" + {{ site.radius }};
+//      var buildingUrl = "{{ site.api }}layers/bag.pand/objects?lat=" + lat.toFixed(4)
+//           + "&lon=" + lon.toFixed(4) + "&per_page=1&radius=" + {{ site.radius }};
 
-      d3.json(buildingUrl, function(geojson) {
+//      d3.json(buildingUrl, function(geojson) {
 
         // Reset data:
-        d3.select("#admr-naam").html("");
-        d3.select("#cbs-oppervlakte").html("");
-        d3.select("#cbs-inwoners").html("");
+//        d3.select("#admr-naam").html("");
+//        d3.select("#cbs-oppervlakte").html("");
+//        d3.select("#cbs-inwoners").html("");
 
-        d3.select("#pand-bouwjaar").html("");
+//        d3.select("#pand-bouwjaar").html("");
 
-        d3.select("#vbo-adres").html("");
-        d3.select("#vbo-postcode").html("");
-        d3.select("#vbo-plaats").html("");
-        d3.select("#vbo-oppervlakte").html("");
-        d3.select("#vbo-gebruiksdoel").html("");
+//        d3.select("#vbo-adres").html("");
+//        d3.select("#vbo-postcode").html("");
+//        d3.select("#vbo-plaats").html("");
+//        d3.select("#vbo-oppervlakte").html("");
+//        d3.select("#vbo-gebruiksdoel").html("");
 
-        if (geojson && geojson.features && geojson.features.length > 0) {
+        if (false && geojson && geojson.features && geojson.features.length > 0) {
           var buildingData = geojson.features[0].properties.layers["bag.pand"].data;
 
           d3.select("#pand-bouwjaar").html(buildingData.bouwjaar);
